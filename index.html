@@ -10,8 +10,14 @@
 <body>
   <main>
     <header>
-      <h1>Список задач</h1>
-      <p id="count" aria-live="polite"></p>
+      <div class="heading">
+        <div class="mark" aria-hidden="true"><i></i><i></i><i></i></div>
+        <h1>Список задач</h1>
+      </div>
+      <div class="summary">
+        <p id="count" aria-live="polite"></p>
+        <progress id="progress" value="0" max="1" aria-label="Прогресс выполнения"></progress>
+      </div>
     </header>
     <form>
       <label for="task">Новая задача</label>

@@ -3,6 +3,7 @@ const form = document.querySelector('form');
 const taskInput = document.querySelector('#task');
 const list = document.querySelector('ul');
 const count = document.querySelector('#count');
+const progress = document.querySelector('#progress');
 const empty = document.querySelector('#empty');
 const error = document.querySelector('#error');
 
@@ -35,7 +36,10 @@ function save(nextTasks) {
 
 function updateSummary() {
   empty.hidden = tasks.length > 0;
-  count.textContent = `Выполнено: ${tasks.filter(task => task.done).length} из ${tasks.length}`;
+  const completed = tasks.filter(task => task.done).length;
+  count.textContent = `Выполнено: ${completed} из ${tasks.length}`;
+  progress.max = tasks.length || 1;
+  progress.value = completed;
 }
 
 function createRow(task) {

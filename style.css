@@ -1,41 +1,105 @@
 :root {
   font-family: Inter, system-ui, sans-serif;
   color: #202b25;
-  background: #edf2eb;
+  background: #f5f0e6;
   line-height: 1.5;
 }
 * { box-sizing: border-box; }
-body { margin: 0; padding: clamp(24px, 9vw, 110px) 16px 40px; }
-main {
-  max-width: 620px;
-  margin: auto;
-  padding: clamp(20px, 5vw, 44px);
-  background: #fff;
-  border: 1px solid #dce5da;
-  border-radius: 24px;
-  box-shadow: 0 16px 50px #24402b0e;
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: clamp(24px, 9vw, 100px) 16px 40px;
+  background: radial-gradient(ellipse at 82% 8%, #e1e8d0, transparent 48%);
 }
-h1 { margin: 0; font-size: clamp(30px, 7vw, 48px); letter-spacing: -.045em; line-height: 1.1; }
-#count { color: #4c6154; margin: 10px 0 28px; }
+main {
+  overflow: hidden;
+  max-width: 640px;
+  margin: auto;
+  background: #fffdf8;
+  border: 1px solid #dddccd;
+  border-radius: 28px;
+  box-shadow: 0 22px 64px #33402b1a;
+}
+header {
+  padding: clamp(22px, 5vw, 40px);
+  color: #f8f8ed;
+  background: radial-gradient(ellipse at 96% 0%, #41644a, transparent 62%), #223c2e;
+}
+.heading { display: flex; align-items: center; gap: 15px; }
+.mark {
+  flex: none;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  gap: 4px;
+  border-radius: 13px;
+  background: #dbe7b2;
+}
+.mark i { display: block; width: 20px; height: 2px; border-radius: 2px; background: #264936; }
+.mark i:last-child { width: 12px; }
+h1 { margin: 0; font-size: clamp(27px, 6vw, 47px); letter-spacing: -.045em; line-height: 1.1; }
+.summary { margin-top: 24px; }
+#count { color: #dfe8d9; margin: 0 0 8px; font-size: 14px; font-variant-numeric: tabular-nums; }
+progress {
+  display: block;
+  width: 100%;
+  height: 7px;
+  appearance: none;
+  border: 0;
+  border-radius: 12px;
+  background: #ffffff2c;
+  accent-color: #dbe7b2;
+}
+progress::-webkit-progress-bar { border-radius: 12px; background: transparent; }
+progress::-webkit-progress-value { border-radius: 12px; background: #dbe7b2; }
+progress::-moz-progress-bar { border-radius: 12px; background: #dbe7b2; }
+form, #error, #empty, ul { margin-inline: clamp(20px, 5vw, 40px); }
+form { margin-block: 26px 20px; }
 form > label { display: block; font-weight: 650; margin-bottom: 7px; }
 .entry { display: flex; gap: 8px; }
 input, button { font: inherit; }
-#task { flex: 1; min-width: 0; padding: 11px 12px; border: 1px solid #87998b; border-radius: 10px; }
-button { cursor: pointer; padding: 10px 14px; border: 0; border-radius: 10px; font-weight: 650; }
-button[type=submit] { color: white; background: #245740; }
+#task {
+  flex: 1;
+  min-width: 0;
+  padding: 11px 13px;
+  border: 1px solid #9ca692;
+  border-radius: 12px;
+  background: #fff;
+}
+button { cursor: pointer; padding: 10px 14px; border: 0; border-radius: 11px; font-weight: 650; }
+button[type=submit] { color: white; background: #28583f; }
 button[type=submit]:hover { background: #19422f; }
 :focus-visible { outline: 3px solid #317454; outline-offset: 3px; }
-#empty { margin: 22px 0 0; padding: 18px; border-radius: 12px; background: #f3f6f2; color: #4c6154; }
+#empty {
+  margin-block: 0 30px;
+  padding: 22px 14px;
+  border: 1px dashed #b8c2ad;
+  border-radius: 14px;
+  background: #f3f5ec;
+  color: #4c6154;
+  text-align: center;
+}
 #error { color: #982a36; }
-ul { list-style: none; padding: 0; margin: 20px 0 0; }
-ul:empty { margin: 0; }
-li { display: flex; gap: 10px; align-items: center; padding: 10px 0; border-top: 1px solid #dce5da; }
-li label { display: flex; align-items: center; gap: 10px; flex: 1; min-width: 0; cursor: pointer; }
+ul { display: grid; gap: 9px; list-style: none; padding: 0; margin-block: 0 30px; }
+ul:empty { display: none; }
+li {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 8px 10px 8px 13px;
+  border: 1px solid #e1e4d7;
+  border-radius: 14px;
+  background: #f7f7f0;
+}
+li:has(input:checked) { background: #edf3e8; }
+li label { display: flex; align-items: center; gap: 11px; flex: 1; min-width: 0; cursor: pointer; }
 li span { overflow-wrap: anywhere; }
 li input { width: 20px; height: 20px; flex: none; margin: 0; accent-color: #245740; }
 li input:checked + span { color: #536258; text-decoration: line-through; }
-li button { color: #852c37; background: #fcf0f1; }
-li button:hover { background: #f8dee2; }
+li button { color: #785055; background: transparent; font-size: 14px; }
+li button:hover { color: #852c37; background: #f8e6e6; }
 @media (max-width: 380px) {
   .entry { flex-direction: column; }
 }
