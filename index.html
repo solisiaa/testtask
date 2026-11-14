@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Список задач</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Список задач</h1>
+      <p id="count" aria-live="polite"></p>
+    </header>
+    <form>
+      <label for="task">Новая задача</label>
+      <div class="entry">
+        <input id="task" placeholder="Например, прочитать главу" maxlength="200" required>
+        <button type="submit">Добавить</button>
+      </div>
+    </form>
+    <p id="error" role="alert" hidden></p>
+    <p id="empty">Пока задач нет. Добавьте первую!</p>
+    <ul aria-label="Задачи"></ul>
+  </main>
+</body>
+</html>
